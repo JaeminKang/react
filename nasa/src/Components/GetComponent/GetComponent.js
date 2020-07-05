@@ -5,10 +5,55 @@ function GetComponent () {
         const [nasaData, setnasaData] = useState(0);
         const [loading, setLoading] = useState(0);
         const [searchState, setsearchState] = useState(0);
+        const [message, setmessage] = useState(0);
+
+        onSearch = async (Params) => {
+            axios
+                .get('/search', {
+                    params: {
+                        q: Params.text
+                    }
+                })
+                .then(function (res){
+                    setLoading(false);
+                })
+                .catch(function (err){
+                    if(err.response) {
+                        switch (err.response.status) {
+                            case 400:
+                                message = "The request was unacceptable, often due to missing a required parameter.";
+                                break;
+                            case 404:
+                                message = "The requested resource doesn’t exist.";
+                                break;
+                            case 500:
+                            case 502:
+                            case 503:
+                            case 504:
+                                message = "Server Errors";
+                                break;
+                            default:
+                                message = "Call developers to Check axios status error";    
+                        }
+                    } else if (err.request) {
+                        message = "App Error";
+                    } else {
+                        message = "Unknown Error";
+                    }
+                    setnasaData(null);
+                    setLoading(true);
+                    setmessage(null);
+                })
+        }
 
         return (
             <React.Fragment>
-                <GetData />
+                <GetData onSearch={this.onSearch}/>
+                <div className="loading-text">
+                    {
+                        this.loading ? <h6>now loading...</h6> : null
+                    }
+                </div>
             </React.Fragment>
         )
     }
