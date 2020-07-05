@@ -27,3 +27,11 @@ https://react-bootstrap.github.io/layout/grid/
 ### - 최근 검색어 및 즐겨찾기 탭 구현하기 (쿠키 활용)
 
 ### - 코드 최적화하기
+
+### - 그 밖의 배운 점들
+
+Javascript에서 1급 객체란?
+
+[참고자료]
+
+https://medium.com/@soeunlee/javascript에서-왜-함수가-1급-객체일까요-cc6bd2a9ecac

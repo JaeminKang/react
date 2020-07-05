@@ -3,6 +3,9 @@ import './App.css';
 import axios from 'axios';
 import GetData from './Components/GetData'
 import Introduction from './Components/Introduction'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,11 +24,25 @@ function App() {
 
     return (
       <React.Fragment>
-        <div className="introduction">
-          <h2 style={{textAlign: "center"}}>NASA 사진 검색 어플리케이션</h2>
-        </div>
-        <Introduction />
-        <GetData />
+        <Container>
+          <Row>
+            <Col>
+          <div className="introduction">
+            <h2 style={{textAlign: "center"}}>NASA 사진 검색 어플리케이션</h2>
+          </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Introduction />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <GetData />
+            </Col>
+          </Row>
+        </Container>
       </React.Fragment>
     );
 }
