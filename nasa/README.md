@@ -12,6 +12,8 @@ https://rinae.dev/posts/a-complete-guide-to-useeffect-ko
 
 ### - Bootstrap 사용하여 컴포넌트 생성하고, Grid 설정하기
 
+[참고자료]
+
 https://react-bootstrap.github.io/
 
 https://react-bootstrap.github.io/layout/grid/
