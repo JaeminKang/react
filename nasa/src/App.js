@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
+import GetData from './Components/GetData'
+import Introduction from './Components/Introduction'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -15,11 +19,15 @@ function App() {
       });
   });
 
-  return (
-    <React.Fragment>
-      {count}
-    </React.Fragment>
-  );
+    return (
+      <React.Fragment>
+        <div className="introduction">
+          <h2 style={{textAlign: "center"}}>NASA 사진 검색 어플리케이션</h2>
+        </div>
+        <Introduction />
+        <GetData />
+      </React.Fragment>
+    );
 }
 
 export default App;
