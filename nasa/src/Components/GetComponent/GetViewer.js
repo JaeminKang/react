@@ -56,7 +56,11 @@ const GetViewer =
                                 role="button"
                                 aria-disabled="true"
                             >
-                                
+                                photographer : {
+                                    props.nasaData.data[0].photographer ?
+                                    JSON.stringify(props.nasaData.data[0].photographer) :
+                                    "Unknown"
+                                }
                             </a>
                     </div>
                 </div>
