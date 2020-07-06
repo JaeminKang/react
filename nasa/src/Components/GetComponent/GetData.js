@@ -6,8 +6,26 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-function GetData () {
+function GetData (props) {
         const [text, setText] = useState(0);
+        const [searchState, setsearchState] = useState({ 
+			text: 'hello', 
+			center: undefined, 
+			description: undefined, 
+			description_508: undefined, 
+			keywords: undefined,
+			location: undefined,
+			media_type: undefined,
+			nasa_id: undefined,
+			page: undefined,
+			photographer: undefined,
+			secondary_creator: undefined,
+			title: undefined,
+			year_start: undefined,
+			year_end: undefined
+        });
+        
+        props.onSearch(searchState);
 
         return (
             <React.Fragment>
