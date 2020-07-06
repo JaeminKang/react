@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from '../../../Api/axios';
+import axios from '../../Api/axios';
+import GetData from './GetData';
 
 function GetComponent () {
         const [nasaData, setnasaData] = useState(0);
@@ -7,7 +8,7 @@ function GetComponent () {
         const [searchState, setsearchState] = useState(0);
         const [message, setmessage] = useState(0);
 
-        onSearch = async (Params) => {
+        let onSearch = async (Params) => {
             axios
                 .get('/search', {
                     params: {
@@ -48,10 +49,10 @@ function GetComponent () {
 
         return (
             <React.Fragment>
-                <GetData onSearch={this.onSearch}/>
+                <GetData onSearch={onSearch}/>
                 <div className="loading-text">
                     {
-                        this.loading ? <h6>now loading...</h6> : null
+                        loading ? <h6>now loading...</h6> : null
                     }
                 </div>
             </React.Fragment>

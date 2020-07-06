@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import axios from 'axios';
-import GetData from './Components/GetData'
+import GetData from './Components/GetComponent/GetData'
 import Introduction from './Components/Introduction'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import GetComponent from './Components/GetComponent/GetComponent'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,6 +28,7 @@ function App() {
         <Container>
           <Row>
             <Col>
+            <p></p>
           <div className="introduction">
             <h2 style={{textAlign: "center"}}>NASA 사진 검색 어플리케이션</h2>
           </div>
@@ -39,9 +41,10 @@ function App() {
           </Row>
           <Row>
             <Col>
-              <GetData />
+              <GetComponent />
             </Col>
           </Row>
+          
         </Container>
       </React.Fragment>
     );
