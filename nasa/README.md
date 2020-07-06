@@ -1,3 +1,4 @@
+![React](https://img.shields.io/badge/React-FrontEnd-blue?logo=React)
 ## React를 사용한 첫 프로젝트
 
 나사에서 제공하는 API를 활용해 데이터를 조회하고, 검색 결과를 출력하는 프로젝트입니다.
