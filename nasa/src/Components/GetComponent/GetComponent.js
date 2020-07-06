@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../../Api/axios';
 import GetData from './GetData';
+import GetViewerList from './GetViewerList';
 
 function GetComponent () {
         const [nasaData, setnasaData] = useState(0);
@@ -16,6 +17,8 @@ function GetComponent () {
                 })
                 .then(function (res){
                     setLoading(false);
+                    setnasaData(res.data.collection.items);
+                    setmessage("");
                 })
                 .catch(function (err){
                     if(err.response) {
@@ -54,6 +57,7 @@ function GetComponent () {
                         loading ? <h6>now loading...</h6> : null
                     }
                 </div>
+                <GetViewerList nasaData= {nasaData} />
             </React.Fragment>
         )
     }
