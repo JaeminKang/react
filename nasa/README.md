@@ -46,3 +46,7 @@ https://medium.com/@kiwanjung/%EB%B2%88%EC%97%AD-async-await-%EB%A5%BC-%EC%82%AC
 [참고자료] Javascript에서 콜백 함수란?
 
 https://webcoding.tistory.com/entry/JavaScript-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98%EB%9E%80
+
+[참고자료] 리액트에서 useReducer란?
+
+https://ko.reactjs.org/docs/hooks-reference.html#usereducer
