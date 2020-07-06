@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import axios from '../../Api/axios';
 import GetData from './GetData';
 
-function GetComponent () {
+function GetComponent (props) {
         const [nasaData, setnasaData] = useState(0);
         const [loading, setLoading] = useState(0);
-        const [searchState, setsearchState] = useState(0);
+        const [searchState, setsearchState] = useState({ 
+			text: 'hello', 
+			center: undefined, 
+			description: undefined, 
+			description_508: undefined, 
+			keywords: undefined,
+			location: undefined,
+			media_type: undefined,
+			nasa_id: undefined,
+			page: undefined,
+			photographer: undefined,
+			secondary_creator: undefined,
+			title: undefined,
+			year_start: undefined,
+			year_end: undefined
+        });
         const [message, setmessage] = useState(0);
+        
+        props.onSubmit(searchState);
 
         let onSearch = async (Params) => {
             axios
