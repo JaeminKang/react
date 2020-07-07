@@ -1,14 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../../Api/axios';
-import GetData from './GetData';
 import GetViewerList from './GetViewerList';
+import Button from 'react-bootstrap/Button'
+import InputGroup from 'react-bootstrap/InputGroup'
+import FormControl from 'react-bootstrap/FormControl'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 function GetComponent () {
-        const [nasaData, setnasaData] = useState(0);
+        const [nasaData, setnasaData] = useState({
+            href: ''
+        });
         const [loading, setLoading] = useState(true);
-        const [message, setmessage] = useState(0);
+        const [message, setmessage] = useState("");
+        const [text, setText] = useState("");
+        const [searchState, setSearchState] = useState({ 
+			text: 'star', 
+			center: undefined, 
+			description: undefined, 
+			description_508: undefined, 
+			keywords: undefined,
+			location: undefined,
+			media_type: undefined,
+			nasa_id: undefined,
+			page: undefined,
+			photographer: undefined,
+			secondary_creator: undefined,
+			title: undefined,
+			year_start: undefined,
+			year_end: undefined
+        });
         
-        let onSearch = async (Params) => {
+        useEffect(() => {
+            onSearch(searchState);
+        }, [searchState]);
+
+        console.log(nasaData);
+
+        const onSearch = async (Params) => {
             axios
                 .get('/search', {
                     params: {
@@ -18,6 +49,7 @@ function GetComponent () {
                 .then(function (res){
                     setLoading(false);
                     setnasaData(res.data.collection.items);
+                    console.log(res);
                     setmessage("");
                 })
                 .catch(function (err){
@@ -48,10 +80,35 @@ function GetComponent () {
                     setmessage(null);
                 })
         }
-
+        
         return (
             <React.Fragment>
-                <GetData onSearch={onSearch}/>
+                <hr></hr>
+                <Container>
+                    <Row><Col algin="right" xs={10}>
+                        <InputGroup className="text-input" 
+                        type="text"
+                        onChange={(e) => {
+                            setText(e.target.value);
+                        }                        
+                        }>
+                        <FormControl
+                            placeholder="search"
+                            aria-label="search"
+                            aria-describedby="basic-addon1"
+                        />
+                        </InputGroup>
+                    </Col>
+                    <Col algin="left">
+                        <Button variant="primary" className="btn-submit" 
+                        onClick={(e) => {
+                            setSearchState({text:text});
+                        }}>
+                        검색</Button>{' '}
+                    </Col>
+                    </Row>
+                </Container>
+
                 <div className="loading-text">
                     {
                         loading ? <h6>now loading...</h6> : null

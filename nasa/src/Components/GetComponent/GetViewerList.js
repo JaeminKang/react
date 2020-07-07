@@ -16,7 +16,9 @@ const reducer = (state, action) => {
 function GetViewerList (props) {
     const [nasaData, setnasaData] = useState(props.nasaData);
     const [isFetching, setisFetching] = useState(false);
-    const [listItems, setlistItems] = useState(nasaData.slice(0, 6));
+    const [listItems, setlistItems] = useState([
+    ]);
+        //nasaData.slice(0, 6));
     const [listCount, stelistCount] = useState(6);
     const [searchState, setsearchState] = useState(reducer, props.searchState);
 
@@ -106,6 +108,7 @@ function GetViewerList (props) {
 
     return (
         <React.Fragment>
+
             {listItems.map((data) => 
             <GetViewer
                 key={data.data[0].nasa_id}

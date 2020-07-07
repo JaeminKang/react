@@ -18,7 +18,7 @@ function App() {
       .get("https://images-api.nasa.gov/search?q=apollo%2011")
       .then(response => {
         setCount(JSON.stringify(response))
-        console.log(JSON.stringify(response))
+        //console.log(JSON.stringify(response))
       });
   });
 
