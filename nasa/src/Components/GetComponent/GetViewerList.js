@@ -16,26 +16,25 @@ const reducer = (state, action) => {
 function GetViewerList (props) {
     const [nasaData, setnasaData] = useState(props.nasaData);
     const [isFetching, setisFetching] = useState(false);
-    const [listItems, setlistItems] = useState(nasaData.slice(0,6));
+    const [listItems, setlistItems] = useState(nasaData.slice(0, 6));
     const [listCount, stelistCount] = useState(6);
     const [searchState, setsearchState] = useState(reducer, props.searchState);
 
     useEffect(() => {
-        windows.addEventListener('scroll', handleScroll);
-        return () => windows.removeEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
         if (!isFetching && listItems.length != 100) return ;
         fetchMoreListItems();
-    }, [isFetching]
-    );
+    }, [isFetching]);
 
     function handleScroll()
     {
-        if (windows.innerHeight + document.documentElement.ScrollTop +1 <= document.documentElement.offsetHeight)
+        if (window.innerHeight + document.documentElement.ScrollTop +1 <= document.documentElement.offsetHeight)
             return;
-        setIsFetching(true);
+        setisFetching(true);
     }
 
     function fetchMoreListItems()
@@ -49,7 +48,7 @@ function GetViewerList (props) {
         }
         stelistCount(listCount + 6);
         setlistItems(pre => ([...pre, ...nasaData.slice(listCount, listCount + 6)]));
-        setIsFetching(false);
+        setisFetching(false);
     }
 
     async function nextnasaData (searchState) {

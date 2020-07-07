@@ -29,6 +29,10 @@ https://react-bootstrap.github.io/layout/grid/
 
 ### - 코드 최적화하기
 
+[참고자료] HOC란?
+
+ https://velopert.com/3537
+
 ### - 그 밖의 배운 점들
 
 [참고자료] var, let, const 차이점은?
