@@ -50,3 +50,9 @@ https://webcoding.tistory.com/entry/JavaScript-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81
 [참고자료] 리액트에서 useReducer란?
 
 https://ko.reactjs.org/docs/hooks-reference.html#usereducer
+
+[참고자료] '...' operator
+
+https://dev.to/sagar/three-dots---in-javascript-26ci
+
+[참고자료]
