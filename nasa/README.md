@@ -31,7 +31,11 @@ https://react-bootstrap.github.io/layout/grid/
 
 [참고자료] HOC란?
 
- https://velopert.com/3537
+https://velopert.com/3537
+
+[참고자료] HOC를 대신할 useContext?
+
+https://velog.io/@public_danuel/trendy-react-usecontext
 
 ### - 그 밖의 배운 점들
 

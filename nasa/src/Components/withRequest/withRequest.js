@@ -46,7 +46,6 @@ function withRequest () {
         return (
             <React.Fragment>
                 <GetData onSearch={onSearch}/>
-
             </React.Fragment>
         )
     }
