@@ -10,12 +10,9 @@ import Col from 'react-bootstrap/Col'
 
 
 function GetComponent () {
-        const [nasaData, setnasaData] = useState({
-            href: ''
-        });
+        const [nasaData, setnasaData] = useState([]);
         const [loading, setLoading] = useState(true);
         const [message, setmessage] = useState("");
-        const [text, setText] = useState("");
         const [searchState, setSearchState] = useState({ 
 			text: 'star', 
 			center: undefined, 
@@ -30,14 +27,19 @@ function GetComponent () {
 			secondary_creator: undefined,
 			title: undefined,
 			year_start: undefined,
-			year_end: undefined
+            year_end: undefined,
+            complete: false
         });
-        
-        useEffect(() => {
-            onSearch(searchState);
-        }, [searchState]);
 
-        console.log(nasaData);
+        useEffect(() => 
+            {
+                function e(){
+                    onSearch(searchState);
+                    setSearchState({...searchState, complete:true});
+                }
+                e();
+            }
+        ,[searchState.complete]);
 
         const onSearch = async (Params) => {
             axios
@@ -89,7 +91,7 @@ function GetComponent () {
                         <InputGroup className="text-input" 
                         type="text"
                         onChange={(e) => {
-                            setText(e.target.value);
+                            setSearchState({...searchState, text:e.target.value});
                         }                        
                         }>
                         <FormControl
@@ -102,7 +104,7 @@ function GetComponent () {
                     <Col algin="left">
                         <Button variant="primary" className="btn-submit" 
                         onClick={(e) => {
-                            setSearchState({text:text});
+                            onSearch(searchState);
                         }}>
                         검색</Button>{' '}
                     </Col>
@@ -111,9 +113,10 @@ function GetComponent () {
 
                 <div className="loading-text">
                     {
-                        loading ? <h6>now loading...</h6> : null
+                        loading ? <h6 align="center">now loading...</h6> : null
                     }
                 </div>
+
                 <GetViewerList nasaData= {nasaData} />
             </React.Fragment>
         )

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 
 const GetViewer =
         props => {
+            console.log(props.nasaData);
         return (
+            
             <React.Fragment>
                 <div className="viewer">
                     {
