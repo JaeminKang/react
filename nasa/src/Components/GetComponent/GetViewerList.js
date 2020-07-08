@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../../Api/axios'
 import GetViewer from './GetViewer';
 
@@ -14,12 +14,17 @@ const reducer = (state, action) => {
 }
 
 function GetViewerList (props) {
-    const [nasaData, setnasaData] = useState(props.nasaData);
+    const [nasaData, setnasaData] = useState([]);
     const [isFetching, setisFetching] = useState(false);
-    const [listItems, setlistItems] = useState(nasaData.slice(1,6));
-    const [listCount, stelistCount] = useState(6);
+    const [listItems, setlistItems] = useState({});
+    const [listCount, setlistCount] = useState(6);
     const [searchState, setsearchState] = useState(reducer, props.searchState);
-    
+   
+    useEffect(() => {
+        setnasaData(props.nasaData);
+        setlistItems(nasaData.slice(1,6));
+    }, [props]);
+
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -42,11 +47,10 @@ function GetViewerList (props) {
         if (listItems.length % 100 === 0)
         {
             setsearchState(searchState.page);
-            stelistCount(0);
+            setlistCount(0);
             nextnasaData(searchState);
-            
         }
-        stelistCount(listCount + 6);
+        setlistCount(listCount + 6);
         setlistItems(pre => ([...pre, ...nasaData.slice(listCount, listCount + 6)]));
         setisFetching(false);
     }
@@ -104,15 +108,11 @@ function GetViewerList (props) {
         })
     }
 
+    console.log(typeof props.nasaData)
     return (
         <React.Fragment>
-
-            {listItems.map((data) => 
-            <GetViewer
-                //key={data.data[0].nasa_id}
-                nasaData={data}
-            />
-            )}
+        {nasaData.slice().map((data) => 
+            <GetViewer nasaData={data}/>)}
         </React.Fragment>
     );
 }

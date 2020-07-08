@@ -51,7 +51,6 @@ function GetComponent () {
                 .then(function (res){
                     setLoading(false);
                     setnasaData(res.data.collection.items);
-                    console.log(res);
                     setmessage("");
                 })
                 .catch(function (err){
@@ -82,7 +81,7 @@ function GetComponent () {
                     setmessage(null);
                 })
         }
-        
+
         return (
             <React.Fragment>
                 <hr></hr>
@@ -116,8 +115,11 @@ function GetComponent () {
                         loading ? <h6 align="center">now loading...</h6> : null
                     }
                 </div>
-
-                <GetViewerList nasaData= {nasaData} />
+                {
+                    <GetViewerList
+                    //key={data.data[0].nasa_id}
+                    nasaData={nasaData} searchState = {searchState}/>
+                }
             </React.Fragment>
         )
     }

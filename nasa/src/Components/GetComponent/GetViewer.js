@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 
-const GetViewer =
-        props => {
-            console.log(props.nasaData);
+function GetViewer(props) {
+    const [nasaData, setnasaData] = useState(props.nasaData);
+
+
+    console.log(props)
         return (
-            
             <React.Fragment>
+        
                 <div className="viewer">
                     {
                         props.nasaData.links ?
@@ -26,7 +28,7 @@ const GetViewer =
                             </h5>
                             <h6>
                                 {
-                                    props.nasaData.data[0].date_created ?
+                                    props.nasaData.data[0].data_created ?
                                     JSON.stringify(props.nasaData[0].date_created).slice(1, 11) :
                                     "Unknown"
                                 }
@@ -65,9 +67,6 @@ const GetViewer =
                                 }
                             </a>
                     </div>
-                </div>
-                <div>
-
                 </div>
             </React.Fragment>
         )
