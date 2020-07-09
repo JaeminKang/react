@@ -39,11 +39,19 @@ https://velog.io/@public_danuel/trendy-react-usecontext
 
 https://ko.reactjs.org/docs/hooks-reference.html#usecontext
 
+https://ddwroom.tistory.com/75
+
+https://velopert.com/3606
+
 [참고자료] useMemo란?
 
 https://ko.reactjs.org/docs/hooks-reference.html#usememo
 
 https://www.daleseo.com/react-hooks-use-memo/
+
+[참고자료] React Hooks를 사용할 이유?
+
+https://ddwroom.tistory.com/75
 
 ### - 그 밖의 배운 점들
 
