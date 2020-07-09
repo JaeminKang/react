@@ -117,7 +117,6 @@ function GetComponent () {
                 </div>
                 {
                     <GetViewerList
-                    //key={data.data[0].nasa_id}
                     nasaData={nasaData} searchState = {searchState}/>
                 }
             </React.Fragment>

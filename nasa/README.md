@@ -39,6 +39,12 @@ https://velog.io/@public_danuel/trendy-react-usecontext
 
 https://ko.reactjs.org/docs/hooks-reference.html#usecontext
 
+[참고자료] useMemo란?
+
+https://ko.reactjs.org/docs/hooks-reference.html#usememo
+
+https://www.daleseo.com/react-hooks-use-memo/
+
 ### - 그 밖의 배운 점들
 
 [참고자료] var, let, const 차이점은?
