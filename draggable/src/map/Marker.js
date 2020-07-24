@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Marker } from "react-map-gl";
-import MyButton from "./Button";
 
 export class MyMarker extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
+      num: props.num,
       marker: {
-        latitude: 37.5326,
-        longitude: 127.024612,
+        latitude: props.latitude,
+        longitude: props.longitude,
       },
     };
   }
@@ -39,6 +40,7 @@ export class MyMarker extends React.Component {
         latitude: event.lngLat[1],
       },
     });
+    this.props.func_revise(this.state.num, event.lngLat[0], event.lngLat[1]);
   };
 
   render() {
@@ -57,7 +59,6 @@ export class MyMarker extends React.Component {
         >
           <div>움직이는 마커</div>
         </Marker>
-        <MyButton />
       </React.Fragment>
     );
   }

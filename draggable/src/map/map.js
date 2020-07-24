@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import MapGL, { FlyToInterpolator } from "react-map-gl";
 import MAPBOX_TOKEN from "../config";
 import MyMarker from "./Marker";
-import Button from "./Button";
 
 function ReactMapGL() {
   const [viewport, setViewport] = useState({
@@ -18,16 +17,29 @@ function ReactMapGL() {
   const [markerList, setMarkerList] = useState([]);
 
   const func_create = () => {
-    console.log("hello");
-    return <MyMarker />;
+    setMarkerList(markerList.concat([[37.5326, 127.024612]]));
+    console.log(markerList);
   };
 
-  const func_submit = () => {
-    return <MyMarker />;
+  const func_submit = () => {};
+
+  const func_revise = (idx, latitude, longitude) => {
+    let revised = markerList.slice();
+    revised[idx][0] = latitude;
+    revised[idx][1] = longitude;
+    setMarkerList(revised);
   };
 
   return (
     <React.Fragment>
+      <div className="btn__box">
+        <button className="my__btn" onClick={func_create}>
+          마커 생성하기
+        </button>
+        <button className="my__btn" onClick={func_submit}>
+          제출하기
+        </button>
+      </div>
       <MapGL
         {...viewport}
         width="100vw"
@@ -37,10 +49,15 @@ function ReactMapGL() {
         onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
-        <Button
-          func_create={() => func_create}
-          func_submit={() => func_submit}
-        />
+        {markerList.map((data, index) => (
+          <MyMarker
+            key={index}
+            num={index}
+            latitude={data[0]}
+            longitude={data[1]}
+            func_revise={func_revise}
+          />
+        ))}
       </MapGL>
     </React.Fragment>
   );
