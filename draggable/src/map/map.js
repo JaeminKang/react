@@ -37,7 +37,10 @@ function ReactMapGL() {
         onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
-        <Button func_create={func_create} func_submit={func_submit} />
+        <Button
+          func_create={() => func_create}
+          func_submit={() => func_submit}
+        />
       </MapGL>
     </React.Fragment>
   );
