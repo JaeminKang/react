@@ -1,8 +1,0 @@
-export const config = {
-  MAPBOX_TOKEN: "a",
-  MAPBOX_THEME: "b",
-  Corona_Token: "c",
-  Google_Token: "AIzaSyANDAneBO93G3a3mAzbUoiMcUGja8jxZAc",
-};
-
-//
