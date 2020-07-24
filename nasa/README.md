@@ -43,6 +43,8 @@ https://ddwroom.tistory.com/75
 
 https://velopert.com/3606
 
+https://hyunseob.github.io/2019/06/02/react-component-the-right-way/
+
 [참고자료] useMemo란?
 
 https://ko.reactjs.org/docs/hooks-reference.html#usememo
@@ -79,4 +81,8 @@ https://ko.reactjs.org/docs/hooks-reference.html#usereducer
 
 https://dev.to/sagar/three-dots---in-javascript-26ci
 
-[참고자료]
+[참고자료] this.props.children ?
+
+https://grahams.tistory.com/181
+
+https://blog.coderifleman.com/2015/06/24/learning-react-2/
